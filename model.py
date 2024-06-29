@@ -5,7 +5,15 @@ from sklearn.metrics.pairwise import cosine_similarity
 import requests
 from nltk.stem import PorterStemmer
 
-API_KEY = "aab1fa37846a0e9e8ba80a0965929ad9"  # Replace with your TMDb API key
+
+def read_api_key(filename):
+    with open(filename, "r") as file:
+        api_key = file.read().strip()
+    return api_key
+
+
+API_KEY_FILE = "hey.txt"
+API_KEY = read_api_key(API_KEY_FILE)
 
 
 # Load data
